@@ -11,7 +11,7 @@ after `<!DOCTYPE nmaprun>`.
 
 
 
-## Screenshot
+## Screenshots
 ![scanme screenshot 1](https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/scanme-screenshot1.png)
 ![scanme screenshot 2](https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/scanme-screenshot2.png)
 ![scanme screenshot 2](https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/scanme-screenshot3.png)
