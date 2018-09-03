@@ -202,6 +202,13 @@ Andreas Hontzia (@honze_net)
                     </tbody>
                   </table>
                 </div>
+                <xsl:if test="count(hostscript/script) > 0">
+                  <h4>Host Script</h4>
+                </xsl:if>
+                <xsl:for-each select="hostscript/script">
+                  <h5><xsl:value-of select="@id"/></h5>
+                  <pre style="white-space:pre-wrap; word-wrap:break-word;"><xsl:value-of select="@output"/></pre>
+                </xsl:for-each>
               </div>
             </div>
           </xsl:for-each>
