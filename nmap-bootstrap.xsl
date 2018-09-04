@@ -6,10 +6,6 @@ Andreas Hontzia (@honze_net)
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" encoding="utf-8" indent="yes" doctype-system="about:legacy-compat"/>
-  <!-- Define URL parameters -->
-  <xsl:param name="url"/>
-  <xsl:param name="hideofflinehosts" value="0"/>
-  <!-- Begin document -->
   <xsl:template match="/">
     <html lang="en">
       <head>
@@ -86,8 +82,7 @@ Andreas Hontzia (@honze_net)
               </div>
             </div>
           </div>
-          <h2 id="scannedhosts" class="target">Scanned Hosts<xsl:if test="$hideofflinehosts=1"><small> (offline hosts are hidden)</small></xsl:if>
-</h2>
+          <h2 id="scannedhosts" class="target">Scanned Hosts</h2>
           <div class="table-responsive">
             <table id="table-overview" class="table table-striped dataTable" role="grid">
               <thead>
@@ -101,15 +96,13 @@ Andreas Hontzia (@honze_net)
               </thead>
               <tbody>
                 <xsl:for-each select="/nmaprun/host">
-                  <xsl:if test="($hideofflinehosts!=1) or (status/@state='up')">
-                    <tr>
-                      <td><span class="label label-danger"><xsl:if test="status/@state='up'"><xsl:attribute name="class">label label-success</xsl:attribute></xsl:if><xsl:value-of select="status/@state"/></span></td>
-                      <td><xsl:value-of select="address/@addr"/></td>
-                      <td><xsl:value-of select="hostnames/hostname/@name"/></td>
-                      <td><xsl:value-of select="count(ports/port[state/@state='open' and @protocol='tcp'])"/></td>
-                      <td><xsl:value-of select="count(ports/port[state/@state='open' and @protocol='udp'])"/></td>
-                    </tr>
-                  </xsl:if>
+                  <tr>
+                    <td><span class="label label-danger"><xsl:if test="status/@state='up'"><xsl:attribute name="class">label label-success</xsl:attribute></xsl:if><xsl:value-of select="status/@state"/></span></td>
+                    <td><xsl:value-of select="address/@addr"/></td>
+                    <td><xsl:value-of select="hostnames/hostname/@name"/></td>
+                    <td><xsl:value-of select="count(ports/port[state/@state='open' and @protocol='tcp'])"/></td>
+                    <td><xsl:value-of select="count(ports/port[state/@state='open' and @protocol='udp'])"/></td>
+                  </tr>
                 </xsl:for-each>
               </tbody>
             </table>
