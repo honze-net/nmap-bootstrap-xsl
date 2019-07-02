@@ -225,6 +225,19 @@ Andreas Hontzia (@honze_net)
                   <h5><xsl:value-of select="@id"/></h5>
                   <pre style="white-space:pre-wrap; word-wrap:break-word;"><xsl:value-of select="@output"/></pre>
                 </xsl:for-each>
+                <xsl:if test="count(os/osmatch) > 0">
+                  <h4>OS Detection</h4>
+                  <xsl:for-each select="os/osmatch">
+                    <h5>OS details: <xsl:value-of select="@name"/> (<xsl:value-of select="@accuracy"/>%)</h5>
+                    <xsl:for-each select="osclass">
+                      Device type: <xsl:value-of select="@type"/><br/>
+                      Running: <xsl:value-of select="@vendor"/><xsl:text> </xsl:text><xsl:value-of select="@osfamily"/><xsl:text> </xsl:text><xsl:value-of select="@osgen"/> (<xsl:value-of select="@accuracy"/>%)<br/>
+                      OS CPE: <a><xsl:attribute name="href">https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=<xsl:value-of select="cpe"/></xsl:attribute><xsl:value-of select="cpe"/></a>
+                      <br/>
+                    </xsl:for-each>
+                    <br/>
+                  </xsl:for-each>
+                </xsl:if>
               </div>
             </div>
           </xsl:for-each>
