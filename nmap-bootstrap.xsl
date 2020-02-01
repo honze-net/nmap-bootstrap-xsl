@@ -131,10 +131,12 @@ Andreas Hontzia (@honze_net)
           <h2 id="onlinehosts" class="target">Online Hosts</h2>
           <xsl:for-each select="/nmaprun/host[status/@state='up']">
             <div class="panel panel-default">
-              <div class="panel-heading">
+              <div class="panel-heading" data-toggle="collapse">
+                  <xsl:attribute name="href">#<xsl:value-of select="translate(address/@addr, '.', '-')"/></xsl:attribute>
                 <h3 class="panel-title"><xsl:value-of select="address/@addr"/><xsl:if test="count(hostnames/hostname) > 0"> - <xsl:value-of select="hostnames/hostname/@name"/></xsl:if></h3>
               </div>
-              <div class="panel-body">
+              <div class="panel-body collapse in">
+                <xsl:attribute name="id"><xsl:value-of select="translate(address/@addr, '.', '-')"/></xsl:attribute>
                 <xsl:if test="count(hostnames/hostname) > 0">
                   <h4>Hostnames</h4>
                   <ul>
