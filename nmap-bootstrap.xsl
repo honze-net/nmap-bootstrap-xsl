@@ -39,6 +39,14 @@ Andreas Hontzia (@honze_net)
           .clickable {
             cursor: pointer;
           }
+          .panel-heading > h3:before {
+            font-family: 'Glyphicons Halflings';
+            content: "\e114"; /* glyphicon-chevron-down */
+            padding-right: 1em;
+          }
+          .panel-heading.collapsed > h3:before {
+            content: "\e080"; /* glyphicon-chevron-right */
+          }
         </style>
         <title>Scan Report Nmap <xsl:value-of select="/nmaprun/@version"/></title>
       </head>
@@ -129,9 +137,6 @@ Andreas Hontzia (@honze_net)
           <script>
             $(document).ready(function() {
               $('#table-overview').DataTable();
-              $('h3.panel-title').click(function() {
-                $(this).find("i.glyphicon").toggleClass("glyphicon-chevron-down glyphicon-chevron-right");
-              });
             });
           </script>
           <h2 id="onlinehosts" class="target">Online Hosts</h2>
@@ -139,7 +144,7 @@ Andreas Hontzia (@honze_net)
             <div class="panel panel-default">
               <div class="panel-heading clickable" data-toggle="collapse">
                   <xsl:attribute name="data-target">#<xsl:value-of select="translate(address/@addr, '.', '-')"/></xsl:attribute>
-                <h3 class="panel-title"><i class="glyphicon glyphicon glyphicon-chevron-right"></i><xsl:value-of select="address/@addr"/><xsl:if test="count(hostnames/hostname) > 0"> - <xsl:value-of select="hostnames/hostname/@name"/></xsl:if></h3>
+                <h3 class="panel-title"><xsl:value-of select="address/@addr"/><xsl:if test="count(hostnames/hostname) > 0"> - <xsl:value-of select="hostnames/hostname/@name"/></xsl:if></h3>
               </div>
               <div class="panel-body collapse in">
                 <xsl:attribute name="id"><xsl:value-of select="translate(address/@addr, '.', '-')"/></xsl:attribute>
