@@ -11,6 +11,7 @@ Andreas Hontzia (@honze_net)
       <head>
         <meta name="referrer" content="no-referrer"/>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" type="text/css" integrity="sha384-VEpVDzPR2x8NbTDZ8NFW4AWbtT2g/ollEzX/daZdW/YvUBlbgVtsxMftnJ84k0Cn" crossorigin="anonymous"/>
+        <link id="dark-theme-style" rel="stylesheet" />
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha384-fJU6sGmyn07b+uD1nMk7/iSb4yvaowcueiQhfVgQuD98rfva8mcr1eSvjchfpMrH" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" integrity="sha384-rgWRqC0OFPisxlUvl332tiM/qmaNxnlY46eksSZD84t+s2vZlqGeHrncwIRX7CGp" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js" integrity="sha384-7PXRkl4YJnEpP8uU4ev9652TTZSxrqC8uOpcV1ftVEC7LVyLZqqDUAaq+Y+lGgr9" crossorigin="anonymous"></script>
@@ -52,7 +53,7 @@ Andreas Hontzia (@honze_net)
               </ul>
               <form class="navbar-form navbar-right" role="search">
                   <button href="javascript:void()"
-                    class="btn btm-default"
+                    class="btn btn-default"
                     id="theme-toggler"
                     onclick="toggleTheme()"
                   ></button>

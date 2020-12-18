@@ -4,8 +4,8 @@ A Nmap XSL implementation with Bootstrap.
 
 ## How to use
 
-- Add the `nmap-bootstrap.xsl` as stylesheet to your Nmap scan. 
-- Example: 
+- Add the `nmap-bootstrap.xsl` as stylesheet to your Nmap scan.
+- Example:
 
 ```sh
 nmap -sS -T4 -A -sC -oA scanme --stylesheet https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl scanme.nmap.org scanme2.nmap.org
@@ -27,11 +27,15 @@ xsltproc -o scanme.html nmap-bootstrap.xsl scanme.xml
 
 ## Screenshots
 
-![scanme screenshot 1](https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/scanme-screenshot1.png)
+Dark mode is now available.
 
-![scanme screenshot 2](https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/scanme-screenshot2.png)
+![scanme screenshot 0](scanme-screenshot0.png)
 
-![scanme screenshot 2](https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/scanme-screenshot3.png)
+![scanme screenshot 1](scanme-screenshot1.png)
+
+![scanme screenshot 2](scanme-screenshot2.png)
+
+![scanme screenshot 2](scanme-screenshot3.png)
 
 ## Demos
 
