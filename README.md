@@ -1,37 +1,53 @@
 # nmap-bootstrap-xsl
 
-A Nmap XSL implementation with Bootstrap.
+Have a nice interface for checking the result of your Nmap scans
 
 ## How to use
 
-- Add the `nmap-bootstrap.xsl` as stylesheet to your Nmap scan. 
-- Example: 
+### 1. New Nmap scan
+- Add the `nmap-bootstrap.xsl` as stylesheet to your Nmap scan with the ``--stylesheet`` argument :
 
-```sh
-nmap -sS -T4 -A -sC -oA scanme --stylesheet https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl scanme.nmap.org scanme2.nmap.org
-```
+  ```sh
+  nmap -sS -T4 -A -sC -oA scanme --stylesheet https://raw.githubusercontent.com/3isenHeiM/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl scanme.nmap.org scanme2.nmap.org
+  ```
 
-- Open the scanme.xml with your Web browser. It should look like the [`scanme.html sample report`](http://htmlpreview.github.io/?https://github.com/honze-net/nmap-bootstrap-xsl/blob/master/scanme.html).
-- Alternatively you can transform the xml to html with
+- Direclty open the file ``scanme.xml`` with your web browser, it will be formatted correctly. It should look like the [`scanme.html` sample report](http://htmlpreview.github.io/?https://github.com/3isenHeiM/nmap-bootstrap-xsl/blob/master/scanme.html).
+
+### 2. With a previously-run scan (with XML output)
+
+If you have a nmap scan already run, with its output as XML, you can apply the formatting template to it.
+
+You'll have 2 options :
+ - convert this XML to a HTML file
+ - keep the XML but apply the stylesheet to it
+
+#### Build an HTML file for sharing
+You have thus to transform the XML to HTML with the following command :
 
 ```sh
 xsltproc -o scanme.html nmap-bootstrap.xsl scanme.xml
 ```
+You will need to download the ``nmap-bootstrap.xsl``stylesheet beforehand.
 
-- You will need to download the nmap-bootstrap.xsl beforehand.
+#### Add the stylesheet to the XML file
 
-## Old scans
+Insert
 
-- You can also format old scans with the xsl stylesheet.
-- Insert `<?xml-stylesheet href="https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl" type="text/xsl"?>` after `<!DOCTYPE nmaprun>`.
+  ```
+  <?xml-stylesheet href="https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl" type="text/xsl"?>
+  ```
+  after `<!DOCTYPE nmaprun>` inside the XML file.
 
 ## Screenshots
 
-![scanme screenshot 1](https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/scanme-screenshot1.png)
+### Scan report
+![scanme screenshot 1](https://raw.githubusercontent.com/3isenHeiM/nmap-bootstrap-xsl/master/scanme-screenshot1.png)
 
-![scanme screenshot 2](https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/scanme-screenshot2.png)
+### Detailed overview
+![scanme screenshot 2](https://raw.githubusercontent.com/3isenHeiM/nmap-bootstrap-xsl/master/scanme-screenshot2.png)
 
-![scanme screenshot 2](https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/scanme-screenshot3.png)
+### Summary table
+![scanme screenshot 2](https://raw.githubusercontent.com/3isenHeiM/nmap-bootstrap-xsl/master/scanme-screenshot3.png)
 
 ## Demos
 

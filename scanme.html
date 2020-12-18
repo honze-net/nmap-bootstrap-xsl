@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="referrer" content="no-referrer">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script><script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><style>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" type="text/css" integrity="sha384-VEpVDzPR2x8NbTDZ8NFW4AWbtT2g/ollEzX/daZdW/YvUBlbgVtsxMftnJ84k0Cn" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha384-fJU6sGmyn07b+uD1nMk7/iSb4yvaowcueiQhfVgQuD98rfva8mcr1eSvjchfpMrH" crossorigin="anonymous"></script><script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" integrity="sha384-rgWRqC0OFPisxlUvl332tiM/qmaNxnlY46eksSZD84t+s2vZlqGeHrncwIRX7CGp" crossorigin="anonymous"></script><script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js" integrity="sha384-7PXRkl4YJnEpP8uU4ev9652TTZSxrqC8uOpcV1ftVEC7LVyLZqqDUAaq+Y+lGgr9" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><style>
           .target:before {
             content: "";
             display: block;
@@ -24,8 +25,19 @@
             height: 180px;
             background-color: #f5f5f5;
           }
+          .clickable {
+            cursor: pointer;
+          }
+          .panel-heading > h3:before {
+            font-family: 'Glyphicons Halflings';
+            content: "\e114"; /* glyphicon-chevron-down */
+            padding-right: 1em;
+          }
+          .panel-heading.collapsed > h3:before {
+            content: "\e080"; /* glyphicon-chevron-right */
+          }
         </style>
-<title>Scan Report Nmap 7.70</title>
+<title>Scan Report Nmap 7.80</title>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top"><div class="container-fluid">
@@ -39,10 +51,10 @@
 </ul></div>
 </div></nav><div class="container">
 <div class="jumbotron">
-<h1>Scan Report<br><small>Nmap 7.70</small>
+<h1>Scan Report<br><small>Nmap 7.80</small>
 </h1>
-<pre style="white-space:pre-wrap; word-wrap:break-word;">nmap -sS -T4 -A -sC -oA scanme --stylesheet https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl scanme.nmap.org scanme2.nmap.org</pre>
-<p class="lead">Sun Sep  2 01:28:09 2018 – Sun Sep  2 01:34:07 2018<br>2 hosts scanned.
+<pre style="white-space:pre-wrap; word-wrap:break-word;">nmap -sS -T4 -A -sC -oA scanme --stylesheet https://raw.githubusercontent.com/3isenHeiM/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl scanme.nmap.org scanme2.nmap.org</pre>
+<p class="lead">Fri Dec 18 09:02:53 2020 – Fri Dec 18 09:03:40 2020<br>2 hosts scanned.
               2 hosts up.
               0 hosts down.
             </p>
@@ -83,10 +95,13 @@
             $(document).ready(function() {
               $('#table-overview').DataTable();
             });
+            $('#table-overview').DataTable( {
+              "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ]
+            });
           </script><h2 id="onlinehosts" class="target">Online Hosts</h2>
 <div class="panel panel-default">
-<div class="panel-heading"><h3 class="panel-title">45.33.32.156 - scanme.nmap.org</h3></div>
-<div class="panel-body">
+<div class="panel-heading clickable" data-toggle="collapse" data-target="#45-33-32-156"><h3 class="panel-title">45.33.32.156 - scanme.nmap.org</h3></div>
+<div class="panel-body collapse in" id="45-33-32-156">
 <h4>Hostnames</h4>
 <ul>
 <li>scanme.nmap.org (user)</li>
@@ -110,7 +125,7 @@
 <td title="State / Reason">open<br>syn-ack</td>
 <td title="Service">ssh</td>
 <td title="Product">OpenSSH</td>
-<td title="Version">6.6.1p1 Ubuntu 2ubuntu2.10</td>
+<td title="Version">6.6.1p1 Ubuntu 2ubuntu2.13</td>
 <td title="Extra Info">Ubuntu Linux; protocol 2.0</td>
 </tr>
 <tr><td colspan="7">
@@ -136,6 +151,33 @@
 <h5>http-title</h5>
 <pre style="white-space:pre-wrap; word-wrap:break-word;">Go ahead and ScanMe!</pre>
 </td></tr>
+<tr class="warning">
+<td>135</td>
+<td>tcp</td>
+<td>filtered<br>no-response</td>
+<td>msrpc</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="warning">
+<td>139</td>
+<td>tcp</td>
+<td>filtered<br>no-response</td>
+<td>netbios-ssn</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="warning">
+<td>445</td>
+<td>tcp</td>
+<td>filtered<br>no-response</td>
+<td>microsoft-ds</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 <tr class="success">
 <td title="Port">9929</td>
 <td title="Protocol">tcp</td>
@@ -158,11 +200,52 @@
 <tr><td colspan="7"><a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version="></a></td></tr>
 </tbody>
 </table></div>
+<h4>OS Detection</h4>
+<h5>OS details: Linux 2.6.32 (92%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (92%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6.32">cpe:/o:linux:linux_kernel:2.6.32</a><br><br><h5>OS details: Linux 2.6.32 or 3.10 (92%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (92%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6.32">cpe:/o:linux:linux_kernel:2.6.32</a><br>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 3.X (92%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:3.10">cpe:/o:linux:linux_kernel:3.10</a><br><br><h5>OS details: Linux 4.4 (92%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 4.X (92%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:4.4">cpe:/o:linux:linux_kernel:4.4</a><br><br><h5>OS details: Linux 2.6.32 - 2.6.35 (90%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (90%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6.32">cpe:/o:linux:linux_kernel:2.6.32</a><br><br><h5>OS details: Linux 2.6.32 - 2.6.39 (90%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (90%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6">cpe:/o:linux:linux_kernel:2.6</a><br><br><h5>OS details: Linux 2.6.32 - 3.0 (88%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (88%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6">cpe:/o:linux:linux_kernel:2.6</a><br>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 3.X (88%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:3">cpe:/o:linux:linux_kernel:3</a><br><br><h5>OS details: Linux 3.11 - 4.1 (88%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 3.X (88%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:3">cpe:/o:linux:linux_kernel:3</a><br>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 4.X (88%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:4">cpe:/o:linux:linux_kernel:4</a><br><br><h5>OS details: Linux 3.2 - 3.8 (88%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 3.X (88%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:3">cpe:/o:linux:linux_kernel:3</a><br><br><h5>OS details: Linux 2.6.18 (88%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (88%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6.18">cpe:/o:linux:linux_kernel:2.6.18</a><br><br><h5>OS details: Linux 3.10 - 3.12 (87%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 3.X (87%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:3">cpe:/o:linux:linux_kernel:3</a><br><br>
 </div>
 </div>
 <div class="panel panel-default">
-<div class="panel-heading"><h3 class="panel-title">45.33.49.119 - scanme2.nmap.org</h3></div>
-<div class="panel-body">
+<div class="panel-heading clickable" data-toggle="collapse" data-target="#45-33-49-119"><h3 class="panel-title">45.33.49.119 - scanme2.nmap.org</h3></div>
+<div class="panel-body collapse in" id="45-33-49-119">
 <h4>Hostnames</h4>
 <ul>
 <li>scanme2.nmap.org (user)</li>
@@ -207,7 +290,14 @@
 </tr>
 <tr><td colspan="7">
 <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/a:postfix:postfix">cpe:/a:postfix:postfix</a><h5>smtp-commands</h5>
-<pre style="white-space:pre-wrap; word-wrap:break-word;">ack.nmap.org, PIPELINING, SIZE 102400000, VRFY, ETRN, ENHANCEDSTATUSCODES, 8BITMIME, DSN, </pre>
+<pre style="white-space:pre-wrap; word-wrap:break-word;">ack.nmap.org, PIPELINING, SIZE 102400000, VRFY, ETRN, STARTTLS, ENHANCEDSTATUSCODES, 8BITMIME, DSN, </pre>
+<h5>ssl-cert</h5>
+<pre style="white-space:pre-wrap; word-wrap:break-word;">Subject: commonName=insecure.com
+Subject Alternative Name: DNS:insecure.com, DNS:insecure.org, DNS:issues.nmap.org, DNS:nmap.com, DNS:nmap.net, DNS:nmap.org, DNS:npcap.org, DNS:seclists.com, DNS:seclists.net, DNS:seclists.org, DNS:sectools.com, DNS:sectools.net, DNS:sectools.org, DNS:secwiki.com, DNS:secwiki.net, DNS:secwiki.org, DNS:svn.nmap.org, DNS:www.nmap.org
+Not valid before: 2020-11-02T10:05:56
+Not valid after:  2021-01-31T10:05:56</pre>
+<h5>ssl-date</h5>
+<pre style="white-space:pre-wrap; word-wrap:break-word;">TLS randomness does not represent time</pre>
 </td></tr>
 <tr class="active">
 <td>70</td>
@@ -257,15 +347,65 @@
 <h5>http-title</h5>
 <pre style="white-space:pre-wrap; word-wrap:break-word;">Did not follow redirect to https://nmap.org/</pre>
 <h5>ssl-cert</h5>
-<pre style="white-space:pre-wrap; word-wrap:break-word;">Subject: commonName=nmap.org
-Subject Alternative Name: DNS:nmap.org, DNS:www.nmap.org
-Not valid before: 2018-03-16T00:00:00
-Not valid after:  2020-03-15T23:59:59</pre>
+<pre style="white-space:pre-wrap; word-wrap:break-word;">Subject: commonName=insecure.com
+Subject Alternative Name: DNS:insecure.com, DNS:insecure.org, DNS:issues.nmap.org, DNS:nmap.com, DNS:nmap.net, DNS:nmap.org, DNS:npcap.org, DNS:seclists.com, DNS:seclists.net, DNS:seclists.org, DNS:sectools.com, DNS:sectools.net, DNS:sectools.org, DNS:secwiki.com, DNS:secwiki.net, DNS:secwiki.org, DNS:svn.nmap.org, DNS:www.nmap.org
+Not valid before: 2020-11-02T10:05:56
+Not valid after:  2021-01-31T10:05:56</pre>
 <h5>ssl-date</h5>
 <pre style="white-space:pre-wrap; word-wrap:break-word;">TLS randomness does not represent time</pre>
 </td></tr>
+<tr class="active">
+<td>31337</td>
+<td>tcp</td>
+<td>closed<br>reset</td>
+<td>Elite</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table></div>
+<h4>OS Detection</h4>
+<h5>OS details: Linux 2.6.32 (94%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (94%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6.32">cpe:/o:linux:linux_kernel:2.6.32</a><br><br><h5>OS details: Linux 2.6.32 or 3.10 (94%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (94%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6.32">cpe:/o:linux:linux_kernel:2.6.32</a><br>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 3.X (94%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:3.10">cpe:/o:linux:linux_kernel:3.10</a><br><br><h5>OS details: Linux 4.4 (93%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 4.X (93%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:4.4">cpe:/o:linux:linux_kernel:4.4</a><br><br><h5>OS details: Linux 2.6.32 - 2.6.35 (92%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (92%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6.32">cpe:/o:linux:linux_kernel:2.6.32</a><br><br><h5>OS details: Linux 2.6.32 - 2.6.39 (92%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (92%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6">cpe:/o:linux:linux_kernel:2.6</a><br><br><h5>OS details: Linux 4.0 (91%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 4.X (91%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:4.0">cpe:/o:linux:linux_kernel:4.0</a><br><br><h5>OS details: Linux 3.11 - 4.1 (89%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 3.X (89%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:3">cpe:/o:linux:linux_kernel:3</a><br>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 4.X (89%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:4">cpe:/o:linux:linux_kernel:4</a><br><br><h5>OS details: Linux 3.2 - 3.8 (89%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 3.X (89%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:3">cpe:/o:linux:linux_kernel:3</a><br><br><h5>OS details: Linux 2.6.18 (89%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (89%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6.18">cpe:/o:linux:linux_kernel:2.6.18</a><br><br><h5>OS details: Linux 2.6.32 - 3.0 (89%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (89%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6">cpe:/o:linux:linux_kernel:2.6</a><br>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 3.X (89%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:3">cpe:/o:linux:linux_kernel:3</a><br><br>
 </div>
 </div>
 <h2 id="openservices" class="target">Open Services</h2>
@@ -287,7 +427,7 @@ Not valid after:  2020-03-15T23:59:59</pre>
 <td>tcp</td>
 <td>ssh</td>
 <td>OpenSSH</td>
-<td>6.6.1p1 Ubuntu 2ubuntu2.10</td>
+<td>6.6.1p1 Ubuntu 2ubuntu2.13</td>
 <td>cpe:/a:openbsd:openssh:6.6.1p1</td>
 <td>Ubuntu Linux; protocol 2.0</td>
 </tr>
@@ -366,6 +506,9 @@ Not valid after:  2020-03-15T23:59:59</pre>
 <script>
             $(document).ready(function() {
               $('#table-services').DataTable();
+            });
+            $('#table-services').DataTable( {
+              "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ]
             });
           </script>
 </div>
