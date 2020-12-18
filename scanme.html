@@ -2,47 +2,45 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script><script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><style>
-          .target:before {
-            content: "";
-            display: block;
-            height: 50px;
-            margin: -20px 0 0;
-          }
+<meta name="referrer" content="no-referrer">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" type="text/css" integrity="sha384-VEpVDzPR2x8NbTDZ8NFW4AWbtT2g/ollEzX/daZdW/YvUBlbgVtsxMftnJ84k0Cn" crossorigin="anonymous">
+<link id="dark-theme-style" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha384-fJU6sGmyn07b+uD1nMk7/iSb4yvaowcueiQhfVgQuD98rfva8mcr1eSvjchfpMrH" crossorigin="anonymous"></script><script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" integrity="sha384-rgWRqC0OFPisxlUvl332tiM/qmaNxnlY46eksSZD84t+s2vZlqGeHrncwIRX7CGp" crossorigin="anonymous"></script><script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js" integrity="sha384-7PXRkl4YJnEpP8uU4ev9652TTZSxrqC8uOpcV1ftVEC7LVyLZqqDUAaq+Y+lGgr9" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><style>
           @media only screen and (min-width:1900px) {
             .container {
               width: 1800px;
               }
           }
-          .footer {
-            margin-top:60px;
-            padding-top:60px;
-            width: 100%;
-            height: 180px;
-            background-color: #f5f5f5;
+          .panel-heading > h3:before {
+            font-family: 'Glyphicons Halflings';
+            content: "\e114"; /* glyphicon-chevron-down */
+            padding-right: 1em;
+          }
+          .panel-heading.collapsed > h3:before {
+            content: "\e080"; /* glyphicon-chevron-right */
           }
         </style>
-<title>Scan Report Nmap 7.70</title>
+<title>Scan Report Nmap 7.80</title>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top"><div class="container-fluid">
+<nav class="navbar navbar-default navbar-fixed-top navbar-dark bg-dark"><div class="container-fluid text-center">
 <div class="navbar-header">
 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a>
 </div>
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><ul class="nav navbar-nav">
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav">
 <li><a href="#scannedhosts">Scanned Hosts</a></li>
 <li><a href="#onlinehosts">Online Hosts</a></li>
 <li><a href="#openservices">Open Services</a></li>
-</ul></div>
+</ul>
+<form class="navbar-form navbar-right" role="search"><button href="javascript:void()" class="btn btn-default" id="theme-toggler" onclick="toggleTheme()"></button></form>
+</div>
 </div></nav><div class="container">
 <div class="jumbotron">
-<h1>Scan Report<br><small>Nmap 7.70</small>
+<h1>Scan Report<br><small>Nmap 7.80</small>
 </h1>
-<pre style="white-space:pre-wrap; word-wrap:break-word;">nmap -sS -T4 -A -sC -oA scanme --stylesheet https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl scanme.nmap.org scanme2.nmap.org</pre>
-<p class="lead">Sun Sep  2 01:28:09 2018 – Sun Sep  2 01:34:07 2018<br>2 hosts scanned.
+<pre style="white-space:pre-wrap; word-wrap:break-word;">nmap -sS -T4 -A -sC -oA scanme --stylesheet https://raw.githubusercontent.com/3isenHeiM/nmap-bootstrap-xsl/dark-mode/nmap-bootstrap.xsl scanme.nmap.org scanme2.nmap.org</pre>
+<p class="lead">Fri Dec 18 09:42:39 2020 – Fri Dec 18 09:43:29 2020<br>2 hosts scanned.
               2 hosts up.
               0 hosts down.
             </p>
@@ -85,8 +83,8 @@
             });
           </script><h2 id="onlinehosts" class="target">Online Hosts</h2>
 <div class="panel panel-default">
-<div class="panel-heading"><h3 class="panel-title">45.33.32.156 - scanme.nmap.org</h3></div>
-<div class="panel-body">
+<div class="panel-heading clickable" data-toggle="collapse" data-target="#45-33-32-156"><h3 class="panel-title">45.33.32.156 - scanme.nmap.org</h3></div>
+<div class="panel-body collapse" id="45-33-32-156">
 <h4>Hostnames</h4>
 <ul>
 <li>scanme.nmap.org (user)</li>
@@ -110,7 +108,7 @@
 <td title="State / Reason">open<br>syn-ack</td>
 <td title="Service">ssh</td>
 <td title="Product">OpenSSH</td>
-<td title="Version">6.6.1p1 Ubuntu 2ubuntu2.10</td>
+<td title="Version">6.6.1p1 Ubuntu 2ubuntu2.13</td>
 <td title="Extra Info">Ubuntu Linux; protocol 2.0</td>
 </tr>
 <tr><td colspan="7">
@@ -136,6 +134,33 @@
 <h5>http-title</h5>
 <pre style="white-space:pre-wrap; word-wrap:break-word;">Go ahead and ScanMe!</pre>
 </td></tr>
+<tr class="warning">
+<td>135</td>
+<td>tcp</td>
+<td>filtered<br>no-response</td>
+<td>msrpc</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="warning">
+<td>139</td>
+<td>tcp</td>
+<td>filtered<br>no-response</td>
+<td>netbios-ssn</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="warning">
+<td>445</td>
+<td>tcp</td>
+<td>filtered<br>no-response</td>
+<td>microsoft-ds</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 <tr class="success">
 <td title="Port">9929</td>
 <td title="Protocol">tcp</td>
@@ -158,11 +183,52 @@
 <tr><td colspan="7"><a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version="></a></td></tr>
 </tbody>
 </table></div>
+<h4>OS Detection</h4>
+<h5>OS details: Linux 2.6.32 (91%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (91%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6.32">cpe:/o:linux:linux_kernel:2.6.32</a><br><br><h5>OS details: Linux 2.6.32 or 3.10 (91%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (91%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6.32">cpe:/o:linux:linux_kernel:2.6.32</a><br>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 3.X (91%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:3.10">cpe:/o:linux:linux_kernel:3.10</a><br><br><h5>OS details: Linux 4.4 (91%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 4.X (91%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:4.4">cpe:/o:linux:linux_kernel:4.4</a><br><br><h5>OS details: Linux 2.6.32 - 2.6.35 (89%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (89%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6.32">cpe:/o:linux:linux_kernel:2.6.32</a><br><br><h5>OS details: Linux 2.6.32 - 2.6.39 (89%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (89%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6">cpe:/o:linux:linux_kernel:2.6</a><br><br><h5>OS details: Linux 2.6.32 - 3.0 (88%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (88%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6">cpe:/o:linux:linux_kernel:2.6</a><br>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 3.X (88%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:3">cpe:/o:linux:linux_kernel:3</a><br><br><h5>OS details: Linux 4.0 (87%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 4.X (87%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:4.0">cpe:/o:linux:linux_kernel:4.0</a><br><br><h5>OS details: Linux 3.11 - 4.1 (87%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 3.X (87%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:3">cpe:/o:linux:linux_kernel:3</a><br>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 4.X (87%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:4">cpe:/o:linux:linux_kernel:4</a><br><br><h5>OS details: Linux 3.2 - 3.8 (87%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 3.X (87%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:3">cpe:/o:linux:linux_kernel:3</a><br><br><h5>OS details: Linux 2.6.18 (87%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (87%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6.18">cpe:/o:linux:linux_kernel:2.6.18</a><br><br>
 </div>
 </div>
 <div class="panel panel-default">
-<div class="panel-heading"><h3 class="panel-title">45.33.49.119 - scanme2.nmap.org</h3></div>
-<div class="panel-body">
+<div class="panel-heading clickable" data-toggle="collapse" data-target="#45-33-49-119"><h3 class="panel-title">45.33.49.119 - scanme2.nmap.org</h3></div>
+<div class="panel-body collapse" id="45-33-49-119">
 <h4>Hostnames</h4>
 <ul>
 <li>scanme2.nmap.org (user)</li>
@@ -207,7 +273,14 @@
 </tr>
 <tr><td colspan="7">
 <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/a:postfix:postfix">cpe:/a:postfix:postfix</a><h5>smtp-commands</h5>
-<pre style="white-space:pre-wrap; word-wrap:break-word;">ack.nmap.org, PIPELINING, SIZE 102400000, VRFY, ETRN, ENHANCEDSTATUSCODES, 8BITMIME, DSN, </pre>
+<pre style="white-space:pre-wrap; word-wrap:break-word;">ack.nmap.org, PIPELINING, SIZE 102400000, VRFY, ETRN, STARTTLS, ENHANCEDSTATUSCODES, 8BITMIME, DSN, </pre>
+<h5>ssl-cert</h5>
+<pre style="white-space:pre-wrap; word-wrap:break-word;">Subject: commonName=insecure.com
+Subject Alternative Name: DNS:insecure.com, DNS:insecure.org, DNS:issues.nmap.org, DNS:nmap.com, DNS:nmap.net, DNS:nmap.org, DNS:npcap.org, DNS:seclists.com, DNS:seclists.net, DNS:seclists.org, DNS:sectools.com, DNS:sectools.net, DNS:sectools.org, DNS:secwiki.com, DNS:secwiki.net, DNS:secwiki.org, DNS:svn.nmap.org, DNS:www.nmap.org
+Not valid before: 2020-11-02T10:05:56
+Not valid after:  2021-01-31T10:05:56</pre>
+<h5>ssl-date</h5>
+<pre style="white-space:pre-wrap; word-wrap:break-word;">TLS randomness does not represent time</pre>
 </td></tr>
 <tr class="active">
 <td>70</td>
@@ -257,15 +330,65 @@
 <h5>http-title</h5>
 <pre style="white-space:pre-wrap; word-wrap:break-word;">Did not follow redirect to https://nmap.org/</pre>
 <h5>ssl-cert</h5>
-<pre style="white-space:pre-wrap; word-wrap:break-word;">Subject: commonName=nmap.org
-Subject Alternative Name: DNS:nmap.org, DNS:www.nmap.org
-Not valid before: 2018-03-16T00:00:00
-Not valid after:  2020-03-15T23:59:59</pre>
+<pre style="white-space:pre-wrap; word-wrap:break-word;">Subject: commonName=insecure.com
+Subject Alternative Name: DNS:insecure.com, DNS:insecure.org, DNS:issues.nmap.org, DNS:nmap.com, DNS:nmap.net, DNS:nmap.org, DNS:npcap.org, DNS:seclists.com, DNS:seclists.net, DNS:seclists.org, DNS:sectools.com, DNS:sectools.net, DNS:sectools.org, DNS:secwiki.com, DNS:secwiki.net, DNS:secwiki.org, DNS:svn.nmap.org, DNS:www.nmap.org
+Not valid before: 2020-11-02T10:05:56
+Not valid after:  2021-01-31T10:05:56</pre>
 <h5>ssl-date</h5>
 <pre style="white-space:pre-wrap; word-wrap:break-word;">TLS randomness does not represent time</pre>
 </td></tr>
+<tr class="active">
+<td>31337</td>
+<td>tcp</td>
+<td>closed<br>reset</td>
+<td>Elite</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table></div>
+<h4>OS Detection</h4>
+<h5>OS details: Linux 2.6.32 (94%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (94%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6.32">cpe:/o:linux:linux_kernel:2.6.32</a><br><br><h5>OS details: Linux 4.4 (94%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 4.X (94%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:4.4">cpe:/o:linux:linux_kernel:4.4</a><br><br><h5>OS details: Linux 2.6.32 or 3.10 (93%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (93%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6.32">cpe:/o:linux:linux_kernel:2.6.32</a><br>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 3.X (93%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:3.10">cpe:/o:linux:linux_kernel:3.10</a><br><br><h5>OS details: Linux 2.6.32 - 2.6.35 (92%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (92%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6.32">cpe:/o:linux:linux_kernel:2.6.32</a><br><br><h5>OS details: Linux 2.6.32 - 2.6.39 (92%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (92%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6">cpe:/o:linux:linux_kernel:2.6</a><br><br><h5>OS details: Linux 4.0 (91%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 4.X (91%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:4.0">cpe:/o:linux:linux_kernel:4.0</a><br><br><h5>OS details: Linux 3.11 - 4.1 (89%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 3.X (89%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:3">cpe:/o:linux:linux_kernel:3</a><br>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 4.X (89%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:4">cpe:/o:linux:linux_kernel:4</a><br><br><h5>OS details: Linux 3.2 - 3.8 (89%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 3.X (89%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:3">cpe:/o:linux:linux_kernel:3</a><br><br><h5>OS details: Linux 2.6.18 (89%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (89%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6.18">cpe:/o:linux:linux_kernel:2.6.18</a><br><br><h5>OS details: Linux 2.6.32 - 3.0 (89%)</h5>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 2.6.X (89%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:2.6">cpe:/o:linux:linux_kernel:2.6</a><br>
+                      Device type: general purpose<br>
+                      Running: Linux Linux 3.X (89%)<br>
+                      OS CPE: <a href="https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=cpe:/o:linux:linux_kernel:3">cpe:/o:linux:linux_kernel:3</a><br><br>
 </div>
 </div>
 <h2 id="openservices" class="target">Open Services</h2>
@@ -287,7 +410,7 @@ Not valid after:  2020-03-15T23:59:59</pre>
 <td>tcp</td>
 <td>ssh</td>
 <td>OpenSSH</td>
-<td>6.6.1p1 Ubuntu 2ubuntu2.10</td>
+<td>6.6.1p1 Ubuntu 2ubuntu2.13</td>
 <td>cpe:/a:openbsd:openssh:6.6.1p1</td>
 <td>Ubuntu Linux; protocol 2.0</td>
 </tr>
@@ -372,6 +495,47 @@ Not valid after:  2020-03-15T23:59:59</pre>
 <footer class="footer"><div class="container"><p class="text-muted">
               This report was generated with <a href="https://github.com/honze-net/nmap-bootstrap-xsl">Nmap Bootstrap XSL</a>.<br>
               Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons BY-SA</a>.<br>
-              Designed and built by Andreas Hontzia (<a href="https://www.twitter.com/honze_net">@honze_net</a>).<br></p></div></footer>
+              Designed and built by Andreas Hontzia (<a href="https://www.twitter.com/honze_net">@honze_net</a>).<br></p></div>
+<script type="text/javascript">
+            // you can use app's unique identifier here
+            const LOCAL_STORAGE_KEY = "toggle-bootstrap-theme";
+            const LOCAL_META_DATA = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+            // you can change this url as needed
+            const DARK_THEME_PATH = "https://bootswatch.com/3/darkly/bootstrap.min.css";
+            const LIGHT_THEME_PATH = "https://bootswatch.com/3/flatly/bootstrap.min.css";
+            const DARK_STYLE_LINK = document.getElementById("dark-theme-style");
+            const THEME_TOGGLER = document.getElementById("theme-toggler");
+            let isDark = LOCAL_META_DATA && LOCAL_META_DATA.isDark;
+            // check if user has already selected dark theme earlier
+            if (isDark) {
+              enableDarkTheme();
+            } else {
+              disableDarkTheme();
+            }
+            /**
+             * Apart from toggling themes, this will also store user's theme preference in local storage.
+             * So when user visits next time, we can load the same theme.
+             *
+             */
+            function toggleTheme() {
+              isDark = !isDark;
+              if (isDark) {
+                enableDarkTheme();
+              } else {
+                disableDarkTheme();
+              }
+              const META = { isDark };
+              localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(META));
+            }
+            function enableDarkTheme() {
+              DARK_STYLE_LINK.setAttribute("href", DARK_THEME_PATH);
+              THEME_TOGGLER.innerHTML = "🌞 Light";
+            }
+            function disableDarkTheme() {
+              DARK_STYLE_LINK.setAttribute("href", LIGHT_THEME_PATH);
+              THEME_TOGGLER.innerHTML = "🌙 Dark";
+
+            }
+          </script></footer>
 </body>
 </html>
