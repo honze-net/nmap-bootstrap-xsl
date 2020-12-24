@@ -1,3 +1,7 @@
+# Retired
+
+This master branch is retired. Please use the default branch (at time of writing: `stable`) instead.
+
 # nmap-bootstrap-xsl
 
 Have a nice interface for checking the result of your Nmap scans
