@@ -2,6 +2,7 @@
 <!--
 Nmap Bootstrap XSL
 Creative Commons BY-SA
+This software must not be used by military or secret service organisations.
 Andreas Hontzia (@honze_net)
 -->
 
