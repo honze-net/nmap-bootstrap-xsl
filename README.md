@@ -1,6 +1,6 @@
 # nmap-bootstrap-xsl
 
-Have a nice interface for checking the result of your Nmap scans
+Have a nice interface for checking the result of your Nmap scans. This software must not be used by military or secret service organisations.
 
 ## How to use
 
