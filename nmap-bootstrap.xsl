@@ -2,6 +2,7 @@
 <!--
 Nmap Bootstrap XSL
 Creative Commons BY-SA
+This software must not be used by military or secret service organisations.
 Andreas Hontzia (@honze_net)
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
