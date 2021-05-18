@@ -113,7 +113,7 @@ Andreas Hontzia (@honze_net)
                     <xsl:for-each select="/nmaprun/host[status/@state='up']">
                       <tr>
                         <td><span class="label label-danger"><xsl:if test="status/@state='up'"><xsl:attribute name="class">label label-success</xsl:attribute></xsl:if><xsl:value-of select="status/@state"/></span></td>
-                        <td><xsl:value-of select="address/@addr"/></td>
+                        <td><a><xsl:attribute name="href">#onlinehosts-<xsl:value-of select="translate(address/@addr, '.', '-')"/></xsl:attribute><xsl:value-of select="address/@addr"/></a></td>
                         <td><xsl:value-of select="hostnames/hostname/@name"/></td>
                         <td><xsl:value-of select="count(ports/port[state/@state='open' and @protocol='tcp'])"/></td>
                         <td><xsl:value-of select="count(ports/port[state/@state='open' and @protocol='udp'])"/></td>
@@ -124,7 +124,7 @@ Andreas Hontzia (@honze_net)
                     <xsl:for-each select="/nmaprun/host">
                       <tr>
                         <td><span class="label label-danger"><xsl:if test="status/@state='up'"><xsl:attribute name="class">label label-success</xsl:attribute></xsl:if><xsl:value-of select="status/@state"/></span></td>
-                        <td><xsl:value-of select="address/@addr"/></td>
+                        <td><a><xsl:attribute name="href">#onlinehosts-<xsl:value-of select="translate(address/@addr, '.', '-')"/></xsl:attribute><xsl:value-of select="address/@addr"/></a></td>
                         <td><xsl:value-of select="hostnames/hostname/@name"/></td>
                         <td><xsl:value-of select="count(ports/port[state/@state='open' and @protocol='tcp'])"/></td>
                         <td><xsl:value-of select="count(ports/port[state/@state='open' and @protocol='udp'])"/></td>
@@ -147,6 +147,7 @@ Andreas Hontzia (@honze_net)
           <xsl:for-each select="/nmaprun/host[status/@state='up']">
             <div class="panel panel-default">
               <div class="panel-heading clickable" data-toggle="collapse">
+                  <xsl:attribute name="id">onlinehosts-<xsl:value-of select="translate(address/@addr, '.', '-')"/></xsl:attribute>
                   <xsl:attribute name="data-target">#<xsl:value-of select="translate(address/@addr, '.', '-')"/></xsl:attribute>
                 <h3 class="panel-title"><xsl:value-of select="address/@addr"/><xsl:if test="count(hostnames/hostname) > 0"> - <xsl:value-of select="hostnames/hostname/@name"/></xsl:if></h3>
               </div>
@@ -277,7 +278,9 @@ Andreas Hontzia (@honze_net)
                 <xsl:for-each select="/nmaprun/host">
                   <xsl:for-each select="ports/port[state/@state='open']">
                     <tr>
-                      <td><xsl:value-of select="../../address/@addr"/><xsl:if test="count(../../hostnames/hostname) > 0"> - <xsl:value-of select="../../hostnames/hostname/@name"/></xsl:if></td>
+                      <td><a>
+                      <xsl:attribute name="href">#onlinehosts-<xsl:value-of select="translate(../../address/@addr, '.', '-')"/></xsl:attribute><xsl:value-of select="../../address/@addr"/>
+                      <xsl:if test="count(../../hostnames/hostname) > 0"> - <xsl:value-of select="../../hostnames/hostname/@name"/></xsl:if></a></td>
                       <td><xsl:value-of select="@portid"/></td>
                       <td><xsl:value-of select="@protocol"/></td>
                       <td><xsl:value-of select="service/@name"/></td>
@@ -294,10 +297,15 @@ Andreas Hontzia (@honze_net)
           <script>
             $(document).ready(function() {
               $('#table-services').DataTable();
+              $("a[href^='#onlinehosts-']").click(function(event){     
+                  event.preventDefault();
+                  $('html,body').animate({scrollTop:($(this.hash).offset().top-60)}, 500);
+              });
             });
             $('#table-services').DataTable( {
               "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ]
             });
+            
           </script>
         </div>
         <footer class="footer">
