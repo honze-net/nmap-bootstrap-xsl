@@ -190,7 +190,7 @@ Andreas Hontzia (@honze_net)
                             </tr>
                             <tr>
                               <td colspan="7">
-                                <a><xsl:attribute name="href">https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=<xsl:value-of select="service/cpe"/></xsl:attribute><xsl:value-of select="service/cpe"/></a>
+                                <xsl:if test="service/cpe"><a target="_blank" href="#"><xsl:attribute name="cpe_version"><xsl:value-of select="service/cpe"/></xsl:attribute><xsl:value-of select="service/cpe"/></a></xsl:if>
                                 <xsl:for-each select="script">
                                   <h5><xsl:value-of select="@id"/></h5>
                                   <pre style="white-space:pre-wrap; word-wrap:break-word;"><xsl:value-of select="@output"/></pre>
@@ -250,8 +250,8 @@ Andreas Hontzia (@honze_net)
                     <xsl:for-each select="osclass">
                       Device type: <xsl:value-of select="@type"/><br/>
                       Running: <xsl:value-of select="@vendor"/><xsl:text> </xsl:text><xsl:value-of select="@osfamily"/><xsl:text> </xsl:text><xsl:value-of select="@osgen"/> (<xsl:value-of select="@accuracy"/>%)<br/>
-                      OS CPE: <a><xsl:attribute name="href">https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=<xsl:value-of select="cpe"/></xsl:attribute><xsl:value-of select="cpe"/></a>
-                      <br/>
+                      <xsl:if test="cpe">OS CPE: <a href="#" target="_blank"><xsl:attribute name="cpe_version"><xsl:value-of select="cpe"/></xsl:attribute><xsl:value-of select="cpe"/></a><br/></xsl:if>
+                      
                     </xsl:for-each>
                     <br/>
                   </xsl:for-each>
@@ -286,7 +286,7 @@ Andreas Hontzia (@honze_net)
                       <td><xsl:value-of select="service/@name"/></td>
                       <td><xsl:value-of select="service/@product"/></td>
                       <td><xsl:value-of select="service/@version"/></td>
-                      <td><xsl:value-of select="service/cpe"/></td>
+                      <td><xsl:if test="service/cpe"><a target="_blank" href="#"><xsl:attribute name="cpe_version"><xsl:value-of select="service/cpe"/></xsl:attribute><xsl:value-of select="service/cpe"/></a></xsl:if></td>
                       <td><xsl:value-of select="service/@extrainfo"/></td>
                     </tr>
                   </xsl:for-each>
@@ -295,13 +295,25 @@ Andreas Hontzia (@honze_net)
             </table>
           </div>
           <script>
+
             $(document).ready(function() {
+
               $('#table-services').DataTable();
               $("a[href^='#onlinehosts-']").click(function(event){     
                   event.preventDefault();
                   $('html,body').animate({scrollTop:($(this.hash).offset().top-60)}, 500);
               });
+              $("body").delegate('a[cpe_version]','click',function(){     
+                  let cpe_version=$(this).attr("cpe_version");
+                  let cpetag=cpe_version.match(/cpe:\/(.*)$/);
+                  if(cpetag){
+                    let cpe_array=cpe_version.split(":");
+                    cpe_version=cpe_version + "::".repeat(5-cpe_array.length);
+                  }
+                  $(this).attr("href","https://nvd.nist.gov/vuln/search/results?form_type=Advanced&amp;cves=on&amp;cpe_version=" + cpe_version);
+              })
             });
+
             $('#table-services').DataTable( {
               "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ]
             });
