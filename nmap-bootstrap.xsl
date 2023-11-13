@@ -77,7 +77,7 @@ Andreas Hontzia (@honze_net)
             <h1>Scan Report<br/><small>Nmap <xsl:value-of select="/nmaprun/@version"/></small></h1>
             <pre style="white-space:pre-wrap; word-wrap:break-word;"><xsl:value-of select="/nmaprun/@args"/></pre>
             <p class="lead">
-              <xsl:value-of select="/nmaprun/@startstr"/> – <xsl:value-of select="/nmaprun/runstats/finished/@timestr"/><br/>
+              <xsl:value-of select="/nmaprun/@startstr"/> - <xsl:value-of select="/nmaprun/runstats/finished/@timestr"/><br/>
               <xsl:value-of select="/nmaprun/runstats/hosts/@total"/> hosts scanned.
               <xsl:value-of select="/nmaprun/runstats/hosts/@up"/> hosts up.
               <xsl:value-of select="/nmaprun/runstats/hosts/@down"/> hosts down.
